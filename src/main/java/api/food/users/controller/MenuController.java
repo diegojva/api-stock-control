@@ -1,6 +1,6 @@
 package api.food.users.controller;
 
-import api.food.users.dto.MenuDTO;
+import api.food.users.dto.MenuDto;
 import api.food.users.model.Menu;
 import api.food.users.service.MenuService;
 import org.modelmapper.ModelMapper;
@@ -23,17 +23,17 @@ public class MenuController {
     private MenuService service;
 
     @GetMapping
-    public ResponseEntity<List<MenuDTO>> getAllMenus() throws Exception{
+    public ResponseEntity<List<MenuDto>> getAllMenus() throws Exception{
         List<Menu> menus = service.findAll();
-        List<MenuDTO> menusDTO = modelMapper.map(menus, new TypeToken<List<MenuDTO>>() {}.getType());
+        List<MenuDto> menusDTO = modelMapper.map(menus, new TypeToken<List<MenuDto>>() {}.getType());
         return new ResponseEntity<>(menusDTO, HttpStatus.OK);
     }
 
     //@GetMapping("/user")
     @PostMapping("/user")
-    public ResponseEntity<List<MenuDTO>> getMenusByUser(@RequestBody String username) throws Exception{
+    public ResponseEntity<List<MenuDto>> getMenusByUser(@RequestBody String username) throws Exception{
         List<Menu> menus = service.getMenusByUsername(username);
-        List<MenuDTO> menusDTO = modelMapper.map(menus, new TypeToken<List<MenuDTO>>() {}.getType());
+        List<MenuDto> menusDTO = modelMapper.map(menus, new TypeToken<List<MenuDto>>() {}.getType());
         return new ResponseEntity<>(menusDTO, HttpStatus.OK);
     }
 

@@ -5,13 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RolDTO {
+public class MenuDto {
 
-    private Integer idRol;
+    private Integer idMenu;
+    private String icon;
     private String name;
-    private String description;
+    private String url;
+    private List<RolDto> roles;
 }

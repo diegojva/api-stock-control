@@ -5,3 +5,53 @@ security:
       client-secret: foodapp123xd
       authorized-grant-types: password
       scope: read,write
+  resource:
+    filter-order: 3
+  signing-key: MaYzkSjmkzPC57L
+  encoding-strength: 256
+  security-realm: Spring Boot JWT
+  jwt:
+    client-id: foodapp
+    client-secret: foodapp123xd
+    grant-type: password
+    scope-read: read
+    scope-write: write
+    resource-ids: foodsourceid
+
+spring:
+  jpa:
+    database: postgresql
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/foodd_users
+    username: postgres
+    password: sistemas
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: zuniga.andree@gmail.com
+    password: fgwjltbxlyfrkzlw
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            trust: smtp.gmail.com
+  main:
+    allow-circular-references: true
+
+app:
+  config:
+    apiWarehouse: https://6382caf06e6c83b7a986add2.mockapi.io/api/v1
+    findProductEndpoint: /shop/{shopId}/product/{productId}
+
+
+
