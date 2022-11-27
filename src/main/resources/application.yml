@@ -1,0 +1,7 @@
+security:
+  oauth2:
+    client:
+      client-id: foodapp
+      client-secret: foodapp123xd
+      authorized-grant-types: password
+      scope: read,write
