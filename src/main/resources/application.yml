@@ -28,7 +28,7 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost/foodd_users
+    url: jdbc:postgresql://localhost:5432/foodd_users
     username: postgres
     password: sistemas
   mail:
@@ -50,7 +50,7 @@ spring:
 
 app:
   config:
-    apiWarehouse: https://6382caf06e6c83b7a986add2.mockapi.io/api/v1
+    apiWarehouse: https://6382caf06e6c83b7a986add2.mockapi.io/api/v1/
     findProductEndpoint: /shop/{shopId}/product/{productId}
 
 
