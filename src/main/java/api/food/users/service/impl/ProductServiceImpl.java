@@ -8,6 +8,9 @@ import api.food.users.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -26,5 +29,11 @@ public class ProductServiceImpl implements ProductService {
             }
         }
         return hasNotification;
+    }
+
+    @Override
+    public List<ProductDto> getProductStockLow() {
+        List<ProductDto> products = warehouseClient.getProduct();
+        return products.stream().filter(p->p.getStock()<=20).collect(Collectors.toList());
     }
 }
