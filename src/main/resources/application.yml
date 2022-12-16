@@ -24,7 +24,7 @@ spring:
     show-sql: true
     open-in-view: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
 
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -45,6 +45,7 @@ spring:
             required: true
           ssl:
             trust: smtp.gmail.com
+            protocols: TLSv1.2
   main:
     allow-circular-references: true
 
@@ -54,5 +55,6 @@ app:
     findProductEndpoint: /shop/{shopId}/product/{productId}
     getProducts: /products
 
-
+server:
+  port: 8081
 

@@ -6,12 +6,15 @@ import api.food.users.repository.NotificationRepository;
 import api.food.users.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 @Transactional
@@ -35,6 +38,11 @@ public class NotificationServiceImpl implements NotificationService {
         mail.send(email);
         saveNotification(email,productDTO);
 
+    }
+
+    @Override
+    public Page<Notification> listPage(Pageable page) {
+        return notificationRepository.findAll(page);
     }
 
     private void saveNotification(SimpleMailMessage email,ProductDto productDto){
