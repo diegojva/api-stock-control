@@ -1,5 +1,6 @@
 package api.food.users.controller;
 
+import api.food.users.dto.OrderProductDto;
 import api.food.users.model.OrderProduct;
 import api.food.users.service.OrderProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,8 @@ public class OrderProductController {
     }
 
     @PostMapping("/registar")
-    public ResponseEntity<OrderProduct> register(@RequestParam("username") String username, @RequestBody OrderProduct orderProduct){
-        OrderProduct orderProductCreated = orderProductService.registrar(orderProduct, username);
+    public ResponseEntity<OrderProduct> register(@RequestBody OrderProductDto orderProductDto){
+        OrderProduct orderProductCreated = orderProductService.registrar(orderProductDto);
         return ResponseEntity.ok(orderProductCreated);
     }
 

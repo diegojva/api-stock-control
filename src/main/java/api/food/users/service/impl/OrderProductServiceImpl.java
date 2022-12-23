@@ -1,5 +1,6 @@
 package api.food.users.service.impl;
 
+import api.food.users.dto.OrderProductDto;
 import api.food.users.model.OrderProduct;
 import api.food.users.model.User;
 import api.food.users.repository.OrderProductRepository;
@@ -26,13 +27,23 @@ public class OrderProductServiceImpl implements OrderProductService {
     }
 
     @Override
-    public OrderProduct registrar(OrderProduct orderProduct, String username) {
-        User user = userService.getUserByUsername(username);
-        orderProduct.setCreated(new Date());
-        orderProduct.setUpdated(new Date());
-        orderProduct.setState("Solicitado");
-        orderProduct.setDescription("Solicitud enviada al almacen central");
-        orderProduct.setUser(user);
+    public OrderProduct registrar(OrderProductDto orderProductDto) {
+
+        User user = userService.getUserByUsername(orderProductDto.getUsername());
+
+        OrderProduct orderProduct = OrderProduct.builder()
+                .productName(orderProductDto.getProductName())
+                .idProduct(orderProductDto.getIdProduct())
+                .shopId(orderProductDto.getShopId())
+                .shopName(orderProductDto.getShopName())
+                .cant(orderProductDto.getCant())
+                .created(new Date())
+                .updated(new Date())
+                .state("Solicitado")
+                .description("Solicitud enviada al almacen central")
+                .user(user)
+                .build();
+
         return orderProductRepository.save(orderProduct);
     }
 }
