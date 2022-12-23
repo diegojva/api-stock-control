@@ -31,7 +31,7 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public void sendNotification(ProductDto productDTO) {
         SimpleMailMessage email = new SimpleMailMessage();
-        email.setTo("zuniga.andree@gmail.com");
+        email.setTo("dvergaraa@upao.edu.pe");
         email.setFrom(emailFrom);
         email.setSubject("Alerta de inventario");
         email.setText("El producto "+productDTO.getProductName()+" de la tienda "+productDTO.getShopName()+" se esta quedando sin stock.");
