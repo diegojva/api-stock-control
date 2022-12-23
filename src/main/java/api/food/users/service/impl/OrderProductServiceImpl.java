@@ -24,6 +24,7 @@ public class OrderProductServiceImpl implements OrderProductService {
     public OrderProduct registrar(OrderProduct orderProduct) {
         orderProduct.setCreated(new Date());
         orderProduct.setUpdated(new Date());
+        orderProduct.setState("Solicitado");
         return orderProductRepository.save(orderProduct);
     }
 }
