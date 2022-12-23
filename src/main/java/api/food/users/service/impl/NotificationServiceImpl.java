@@ -56,7 +56,7 @@ public class NotificationServiceImpl implements NotificationService {
         notification.setProductId(productDto.getProductId());
         notification.setProductName(productDto.getProductName());
         notification.setShopId(productDto.getShopId());
-        notification.setProductName(productDto.getShopName());
+        notification.setShopName(productDto.getShopName());
         notification.setStock(productDto.getStock());
         notificationRepository.save(notification);
     }
