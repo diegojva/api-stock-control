@@ -7,5 +7,5 @@ import java.util.List;
 public interface OrderProductService {
 
     List<OrderProduct> getOrderProducts();
-    OrderProduct create(OrderProduct orderProduct);
+    OrderProduct registrar(OrderProduct orderProduct);
 }
