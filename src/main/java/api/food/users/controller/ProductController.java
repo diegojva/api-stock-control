@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -25,11 +26,15 @@ public class ProductController {
 
     @GetMapping("/products-stock-low")
     public ResponseEntity<List<ProductDto>> getProducts(){
+
         return ResponseEntity.ok(productService.getProductStockLow());
+
     }
 
     @GetMapping("/product/{id}")
     public ResponseEntity <Product>getProducts(@PathVariable Long id){
         return ResponseEntity.ok(productService.getProductoById(id));
     }
+
+
 }
