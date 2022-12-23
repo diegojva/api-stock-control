@@ -23,7 +23,7 @@ public class ProductServiceImpl implements ProductService {
         Boolean hasNotification = false;
         for(Long productId : saleDto.getProducts()){
             ProductDto productDTO = warehouseClient.findProductEndpoint(saleDto.getShopId(),productId);
-            if(productDTO.getStock()<100){
+            if(productDTO.getStock()<50){
                 hasNotification = Boolean.TRUE;
                 notificationService.sendNotification(productDTO);
             }
