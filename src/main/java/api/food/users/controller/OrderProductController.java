@@ -22,7 +22,7 @@ public class OrderProductController {
     }
 
     @PostMapping("/registar")
-    public ResponseEntity<OrderProduct> register(@RequestBody OrderProduct orderProduct){
+    public ResponseEntity<OrderProduct> register(@RequestParam("username") String username, @RequestBody OrderProduct orderProduct){
         OrderProduct orderProductCreated = orderProductService.registrar(orderProduct);
         return ResponseEntity.ok(orderProductCreated);
     }
