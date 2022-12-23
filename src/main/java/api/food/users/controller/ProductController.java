@@ -2,6 +2,7 @@ package api.food.users.controller;
 
 import api.food.users.dto.ProductDto;
 import api.food.users.dto.SaleDto;
+import api.food.users.model.Product;
 import api.food.users.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,5 +26,10 @@ public class ProductController {
     @GetMapping("/products-stock-low")
     public ResponseEntity<List<ProductDto>> getProducts(){
         return ResponseEntity.ok(productService.getProductStockLow());
+    }
+
+    @GetMapping("/product/{id}")
+    public ResponseEntity <Product>getProducts(@PathVariable Long id){
+        return ResponseEntity.ok(productService.getProductoById(id));
     }
 }

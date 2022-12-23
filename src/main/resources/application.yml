@@ -54,6 +54,7 @@ app:
     apiWarehouse: https://6382caf06e6c83b7a986add2.mockapi.io/api/v1/
     findProductEndpoint: /shop/{shopId}/product/{productId}
     getProducts: /products
+    getProductById: /product/{id}
 
 server:
   port: 8081
