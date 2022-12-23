@@ -25,6 +25,7 @@ public class OrderProductServiceImpl implements OrderProductService {
         orderProduct.setCreated(new Date());
         orderProduct.setUpdated(new Date());
         orderProduct.setState("Solicitado");
+        orderProduct.setDescripcion("Solicitud enviada al almacen central");
         return orderProductRepository.save(orderProduct);
     }
 }
