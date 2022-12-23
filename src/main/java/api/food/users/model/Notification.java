@@ -22,7 +22,9 @@ public class Notification {
     private Long id;
     private Date sendDate;
     private Long productId;
+    private String productName;
     private Long shopId;
+    private String shopName;
     private Double stock;
     private String setTo;
     private String setFrom;

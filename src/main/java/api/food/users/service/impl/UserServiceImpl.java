@@ -2,6 +2,7 @@ package api.food.users.service.impl;
 
 import api.food.users.model.User;
 import api.food.users.repository.UserRepository;
+import api.food.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Autowired
     private UserRepository repo;
@@ -37,6 +38,11 @@ public class UserServiceImpl implements UserDetailsService {
         UserDetails ud = new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.isEnabled(), true, true, true, roles);
 
         return ud;
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return repo.findOneByUsername(username);
     }
 }
 

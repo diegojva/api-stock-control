@@ -54,7 +54,9 @@ public class NotificationServiceImpl implements NotificationService {
         notification.setText(email.getText());
         notification.setSendDate(new Date());
         notification.setProductId(productDto.getProductId());
+        notification.setProductName(productDto.getProductName());
         notification.setShopId(productDto.getShopId());
+        notification.setProductName(productDto.getShopName());
         notification.setStock(productDto.getStock());
         notificationRepository.save(notification);
     }
